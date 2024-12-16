@@ -121,7 +121,6 @@ if(isset($_POST['submit'])) {
 
                     <button type="submit" class="btn btn-primary" name="submit">Simpan</button>
                 </form>
-            
             </div>
         </div>
 

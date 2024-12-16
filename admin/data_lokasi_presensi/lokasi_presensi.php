@@ -52,7 +52,6 @@ $result = mysqli_query($connection, "SELECT * FROM lokasi_presensi ORDER BY id D
                 <?php endwhile; ?>    
             <?php } ?>
         </table>
-
     </div>
 </div> 
 

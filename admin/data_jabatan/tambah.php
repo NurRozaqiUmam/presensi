@@ -34,25 +34,24 @@ if(isset($_POST['submit'])) {
 ?>
 
 <!-- Page body -->
-        <div class="page-body">
-          <div class="container-xl">
-                
-            <div class="card col-md-6">
-                <div class="card-body">
+<div class="page-body">
+    <div class="container-xl">
+        <div class="card col-md-6">
+            <div class="card-body">
 
                 <form action="<?= base_url('admin/data_jabatan/tambah.php') ?>" method="POST">
 
-                <div class="mb-3">
-                    <label for="">Nama Jabatan</label>
-                    <input type="text" class="form-control" name="jabatan">
-                </div>
+                    <div class="mb-3">
+                        <label for="">Nama Jabatan</label>
+                        <input type="text" class="form-control" name="jabatan">
+                    </div>
 
-                <button type="submit" name="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Simpan</button>
                 </form>
 
-                </div>
             </div>
-          </div>
         </div>
+    </div>
+</div>
 
 <?php include('../layout/footer.php'); ?>

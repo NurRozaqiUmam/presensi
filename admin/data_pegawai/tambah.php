@@ -113,46 +113,101 @@ if(isset($_POST['submit'])) {
  <!-- Page body -->
 <div class="page-body">
     <div class="container-xl">
-    <form action="<?= base_url('admin/data_pegawai/tambah.php') ?>" method="POST" enctype="multipart/form-data">
-        <div class="row">
+        <form action="<?= base_url('admin/data_pegawai/tambah.php') ?>" method="POST" enctype="multipart/form-data">
+            <div class="row">
 
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                                <div class="mb-3">
+                                    <label for="">Nama</label>
+                                    <input type="text" class="form-control" name="nama" value="<?php if(isset($_POST['nama'])) echo $_POST['nama'] ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Jenis Kelamin</label>
+                                    <select name="jenis_kelamin" class="form-control">
+                                        <option value="">--Pilih Jenis Kelamin--</option>
+                                        <option <?php if(isset($_POST['jenis_kelamin']) && $_POST['jenis_kelamin'] == 'Laki-laki') {echo 'selected';} ?> value="Laki-laki">Laki-laki</option>
+                                        <option <?php if(isset($_POST['jenis_kelamin']) && $_POST['jenis_kelamin'] == 'Perempuan') {echo 'selected';} ?> value="Perempuan">Perempuan</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Alamat</label>
+                                    <input type="text" class="form-control" name="alamat" value="<?php if(isset($_POST['alamat'])) echo $_POST['alamat'] ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">No. Handphone</label>
+                                    <input type="text" class="form-control" name="no_handphone" value="<?php if(isset($_POST['no_handphone'])) echo $_POST['no_handphone'] ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Jabatan</label>
+                                    <select name="jabatan" class="form-control">
+                                        <option value="">--Pilih Jabatan--</option>
+                                        <?php
+                                        $ambil_jabatan = mysqli_query($connection, "SELECT * FROM jabatan ORDER BY jabatan ASC");
+                                        while($jabatan = mysqli_fetch_assoc($ambil_jabatan)) {
+                                            $nama_jabatan = $jabatan['jabatan'];
+
+                                            if(isset($_POST['jabatan']) && $_POST['jabatan'] == $nama_jabatan) {
+                                                echo '<option value="' . $nama_jabatan .'" selected="selected">' . $nama_jabatan . '</option>';
+                                            }else{
+                                                echo '<option value="' . $nama_jabatan .'">' . $nama_jabatan . '</option>';
+                                            }
+                                        }
+                                        ?>
+
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Status</label>
+                                    <select name="status" class="form-control">
+                                        <option value="">--Pilih Status--</option>
+                                        <option <?php if(isset($_POST['status']) && $_POST['status'] == 'Aktif') {echo 'selected';} ?> value="Aktif">Aktif</option>
+                                        <option <?php if(isset($_POST['status']) && $_POST['status'] == 'Tidak Aktif') {echo 'selected';} ?> value="Tidak Aktif">Tidak Aktif</option>
+                                    </select>
+                                </div>
+        
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
                             <div class="mb-3">
-                                <label for="">Nama</label>
-                                <input type="text" class="form-control" name="nama" value="<?php if(isset($_POST['nama'])) echo $_POST['nama'] ?>">
+                                <label for="">Username</label>
+                                <input type="text" class="form-control" name="username" value="<?php if(isset($_POST['username'])) echo $_POST['username'] ?>">
                             </div>
                             <div class="mb-3">
-                                <label for="">Jenis Kelamin</label>
-                                <select name="jenis_kelamin" class="form-control">
-                                    <option value="">--Pilih Jenis Kelamin--</option>
-                                    <option <?php if(isset($_POST['jenis_kelamin']) && $_POST['jenis_kelamin'] == 'Laki-laki') {echo 'selected';} ?> value="Laki-laki">Laki-laki</option>
-                                    <option <?php if(isset($_POST['jenis_kelamin']) && $_POST['jenis_kelamin'] == 'Perempuan') {echo 'selected';} ?> value="Perempuan">Perempuan</option>
+                                <label for="">Password</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Ulangi Password</label>
+                                <input type="password" class="form-control" name="ulangi_password">
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Role</label>
+                                <select name="role" class="form-control">
+                                    <option value="">--Pilih Role--</option>
+                                    <option <?php if(isset($_POST['role']) && $_POST['role'] == 'admin') {echo 'selected';} ?> value="admin">Admin</option>
+                                    <option <?php if(isset($_POST['role']) && $_POST['role'] == 'pegawai') {echo 'selected';} ?> value="pegawai">Pegawai</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="">Alamat</label>
-                                <input type="text" class="form-control" name="alamat" value="<?php if(isset($_POST['alamat'])) echo $_POST['alamat'] ?>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="">No. Handphone</label>
-                                <input type="text" class="form-control" name="no_handphone" value="<?php if(isset($_POST['no_handphone'])) echo $_POST['no_handphone'] ?>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="">Jabatan</label>
-                                <select name="jabatan" class="form-control">
-                                    <option value="">--Pilih Jabatan--</option>
+                                <label for="">Lokasi Presensi</label>
+                                <select name="lokasi_presensi" class="form-control">
+                                    <option value="">--Pilih Lokasi Presensi--</option>
                                     <?php
-                                    $ambil_jabatan = mysqli_query($connection, "SELECT * FROM jabatan ORDER BY jabatan ASC");
-                                    while($jabatan = mysqli_fetch_assoc($ambil_jabatan)) {
-                                        $nama_jabatan = $jabatan['jabatan'];
+                                    $ambil_lok_presensi = mysqli_query($connection, "SELECT * FROM lokasi_presensi ORDER BY nama_lokasi ASC");
+                                    while($lokasi = mysqli_fetch_assoc($ambil_lok_presensi)) {
+                                        $nama_lokasi = $lokasi['nama_lokasi'];
 
-                                        if(isset($_POST['jabatan']) && $_POST['jabatan'] == $nama_jabatan) {
-                                            echo '<option value="' . $nama_jabatan .'" selected="selected">' . $nama_jabatan . '</option>';
+                                        if(isset($_POST['lokasi_presensi']) && $_POST['lokasi_presensi'] == $nama_lokasi) {
+                                            echo '<option value="' . $nama_lokasi .'" selected="selected">' . $nama_lokasi . '</option>';
                                         }else{
-                                            echo '<option value="' . $nama_jabatan .'">' . $nama_jabatan . '</option>';
+                                            echo '<option value="' . $nama_lokasi .'">' . $nama_lokasi . '</option>';
                                         }
                                     }
                                     ?>
@@ -160,73 +215,18 @@ if(isset($_POST['submit'])) {
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="">Status</label>
-                                <select name="status" class="form-control">
-                                    <option value="">--Pilih Status--</option>
-                                    <option <?php if(isset($_POST['status']) && $_POST['status'] == 'Aktif') {echo 'selected';} ?> value="Aktif">Aktif</option>
-                                    <option <?php if(isset($_POST['status']) && $_POST['status'] == 'Tidak Aktif') {echo 'selected';} ?> value="Tidak Aktif">Tidak Aktif</option>
-                                </select>
+                                <label for="">Foto</label>
+                                <input type="file" class="form-control" name="foto">
                             </div>
-    
+
+                            <button type="submit" class="btn btn-primary" name="submit">Simpan</button>
+
+                        </div>
                     </div>
                 </div>
+                
             </div>
-
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <label for="">Username</label>
-                            <input type="text" class="form-control" name="username" value="<?php if(isset($_POST['username'])) echo $_POST['username'] ?>">
-                        </div>
-                        <div class="mb-3">
-                            <label for="">Password</label>
-                            <input type="password" class="form-control" name="password">
-                        </div>
-                        <div class="mb-3">
-                            <label for="">Ulangi Password</label>
-                            <input type="password" class="form-control" name="ulangi_password">
-                        </div>
-                        <div class="mb-3">
-                            <label for="">Role</label>
-                            <select name="role" class="form-control">
-                                <option value="">--Pilih Role--</option>
-                                <option <?php if(isset($_POST['role']) && $_POST['role'] == 'admin') {echo 'selected';} ?> value="admin">Admin</option>
-                                <option <?php if(isset($_POST['role']) && $_POST['role'] == 'pegawai') {echo 'selected';} ?> value="pegawai">Pegawai</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="">Lokasi Presensi</label>
-                            <select name="lokasi_presensi" class="form-control">
-                                <option value="">--Pilih Lokasi Presensi--</option>
-                                <?php
-                                $ambil_lok_presensi = mysqli_query($connection, "SELECT * FROM lokasi_presensi ORDER BY nama_lokasi ASC");
-                                while($lokasi = mysqli_fetch_assoc($ambil_lok_presensi)) {
-                                    $nama_lokasi = $lokasi['nama_lokasi'];
-
-                                    if(isset($_POST['lokasi_presensi']) && $_POST['lokasi_presensi'] == $nama_lokasi) {
-                                        echo '<option value="' . $nama_lokasi .'" selected="selected">' . $nama_lokasi . '</option>';
-                                    }else{
-                                        echo '<option value="' . $nama_lokasi .'">' . $nama_lokasi . '</option>';
-                                    }
-                                }
-                                ?>
-
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="">Foto</label>
-                            <input type="file" class="form-control" name="foto">
-                        </div>
-
-                        <button type="submit" class="btn btn-primary" name="submit">Simpan</button>
-
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </form>
+        </form>
 
     </div>
 </div>

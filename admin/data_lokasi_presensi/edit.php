@@ -81,66 +81,66 @@ while($lokasi = mysqli_fetch_array($result)) {
 ?>
 
 <!-- Page body -->
-        <div class="page-body">
-          <div class="container-xl">
-                
-            <div class="card col-md-6">
-                <div class="card-body">
+<div class="page-body">
+    <div class="container-xl">
+        
+        <div class="card col-md-6">
+            <div class="card-body">
 
                 <form action="<?= base_url('admin/data_lokasi_presensi/edit.php') ?>" method="POST">
 
-                <div class="mb-3">
-                    <label for="">Nama Lokasi</label>
-                    <input type="text" class="form-control" name="nama_lokasi" value="<?= $nama_lokasi ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="">Alamat Lokasi</label>
-                    <input type="text" class="form-control" name="alamat_lokasi" value="<?= $alamat_lokasi ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="">Tipe Lokasi</label>
-                    <select name="tipe_lokasi" class="form-control">
-                        <option value="">--Pilih Tipe Lokasi--</option>
-                        <option <?php if($tipe_lokasi == 'Pusat') {echo 'selected';} ?> value="Pusat">Pusat</option>
-                        <option <?php if($tipe_lokasi == 'Cabang') {echo 'selected';} ?> value="Cabang">Cabang</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="">Latitude</label>
-                    <input type="text" class="form-control" name="latitude" value="<?= $latitude ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="">Longitude</label>
-                    <input type="text" class="form-control" name="longitude" value="<?= $longitude ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="">Radius</label>
-                    <input type="text" class="form-control" name="radius" value="<?= $radius ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="">Zona Waktu</label>
-                    <select name="zona_waktu" class="form-control">
-                        <option value="">--Pilih Zona Waktu--</option>
-                        <option <?php if($zona_waktu == 'WIB') {echo 'selected';} ?> value="WIB">WIB</option>
-                        <option <?php if($zona_waktu == 'WITA') {echo 'selected';} ?> value="WITA">WITA</option>
-                        <option <?php if($zona_waktu == 'WIT') {echo 'selected';} ?> value="WIT">WIT</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="">Jam Masuk</label>
-                    <input type="text" class="form-control" name="jam_masuk" value="<?= $jam_masuk ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="">Jam Pulang</label>
-                    <input type="text" class="form-control" name="jam_pulang" value="<?= $jam_pulang ?>">
-                </div>
-                <input type="hidden" value="<?= $id ?>" name="id">
-                <button type="submit" name="update" class="btn btn-primary">Update</button>
+                    <div class="mb-3">
+                        <label for="">Nama Lokasi</label>
+                        <input type="text" class="form-control" name="nama_lokasi" value="<?= $nama_lokasi ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Alamat Lokasi</label>
+                        <input type="text" class="form-control" name="alamat_lokasi" value="<?= $alamat_lokasi ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Tipe Lokasi</label>
+                        <select name="tipe_lokasi" class="form-control">
+                            <option value="">--Pilih Tipe Lokasi--</option>
+                            <option <?php if($tipe_lokasi == 'Pusat') {echo 'selected';} ?> value="Pusat">Pusat</option>
+                            <option <?php if($tipe_lokasi == 'Cabang') {echo 'selected';} ?> value="Cabang">Cabang</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Latitude</label>
+                        <input type="text" class="form-control" name="latitude" value="<?= $latitude ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Longitude</label>
+                        <input type="text" class="form-control" name="longitude" value="<?= $longitude ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Radius</label>
+                        <input type="text" class="form-control" name="radius" value="<?= $radius ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Zona Waktu</label>
+                        <select name="zona_waktu" class="form-control">
+                            <option value="">--Pilih Zona Waktu--</option>
+                            <option <?php if($zona_waktu == 'WIB') {echo 'selected';} ?> value="WIB">WIB</option>
+                            <option <?php if($zona_waktu == 'WITA') {echo 'selected';} ?> value="WITA">WITA</option>
+                            <option <?php if($zona_waktu == 'WIT') {echo 'selected';} ?> value="WIT">WIT</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Jam Masuk</label>
+                        <input type="text" class="form-control" name="jam_masuk" value="<?= $jam_masuk ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Jam Pulang</label>
+                        <input type="text" class="form-control" name="jam_pulang" value="<?= $jam_pulang ?>">
+                    </div>
+                    <input type="hidden" value="<?= $id ?>" name="id">
+                    <button type="submit" name="update" class="btn btn-primary">Update</button>
                 </form>
 
-                </div>
             </div>
-          </div>
         </div>
+    </div>
+</div>
 
 <?php include('../layout/footer.php'); ?>

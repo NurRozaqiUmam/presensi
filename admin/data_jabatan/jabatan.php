@@ -15,13 +15,13 @@ $result = mysqli_query($connection, "SELECT * FROM jabatan ORDER BY id DESC");
 ?>
 
 <!-- Page body -->
-        <div class="page-body">
-          <div class="container-xl">
-          <a href="<?= base_url('admin/data_jabatan/tambah.php') ?>" class="btn btn-primary"><span class="text">
-          <i class="fa-solid fa-circle-plus"></i> Tambah Data
-          </span></a>
+<div class="page-body">
+    <div class="container-xl">
+        <a href="<?= base_url('admin/data_jabatan/tambah.php') ?>" class="btn btn-primary"><span class="text">
+        <i class="fa-solid fa-circle-plus"></i> Tambah Data
+        </span></a>
 
-            <div class="row row-deck row-cards mt-2">
+        <div class="row row-deck row-cards mt-2">
             <table class="table table-bordered">
                 <tr class="text-center">
                     <th>No.</th>
@@ -46,12 +46,10 @@ $result = mysqli_query($connection, "SELECT * FROM jabatan ORDER BY id DESC");
                     </tr>
                 <?php endwhile; ?>
                 <?php endif; ?>
-
-
             </table>
-              
-            </div>
-          </div>
+            
         </div>
+    </div>
+</div>
 
 <?php include('../layout/footer.php'); ?>
