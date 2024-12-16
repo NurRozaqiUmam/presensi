@@ -66,8 +66,6 @@ if(isset($_POST['submit'])) {
 
 ?>
 
-
-<!-- Page body -->
  <!-- Page body -->
 <div class="page-body">
     <div class="container-xl">
