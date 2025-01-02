@@ -46,10 +46,10 @@ $result = mysqli_query($connection, "SELECT * FROM ketidakhadiran WHERE id_pegaw
                             <td class="text-center">
                                 <a target="_blank" href="<?= base_url('assets/file_ketidakhadiran/'.$data['file']) ?>" class="badge badge-pill bg-primary">Download</a>
                             </td>
-                            <td><?= $data['status_pengajuan']; ?></td>
+                            <td class="text-center"><?= $data['status_pengajuan']; ?></td>
                             <td class="text-center">
                                 <a href="edit.php?id=<?= $data['id'] ?>" class="badge badge-pill bg-success">Update</a>
-                                <a href="hapus.php?id=<?= $data['id'] ?>" class="badge badge-pill bg-danger">Hapus</a>
+                                <a href="hapus.php?id=<?= $data['id'] ?>" class="badge badge-pill bg-danger btn-delete">Hapus</a>
                             </td>
                         </tr>
                             

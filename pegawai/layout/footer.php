@@ -204,5 +204,26 @@
       </script>
       <?php unset($_SESSION["validasi"]); ?>
     <?php endif; ?>
+
+    <!-- Alert Confirm Delete -->
+    <script>
+      $('.btn-delete').on('click', function() {
+        var getLink = $(this).attr('href');
+        Swal.fire({
+            title: "Yakin hapus?",
+            text: "Data yang sudah dihapus tidak bisa dikembalikan",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya, hapus",
+      }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = getLink
+          }
+        })
+        return false;
+      });
+     </script>
   </body>
 </html>
